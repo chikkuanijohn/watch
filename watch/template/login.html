@@ -1,96 +1,186 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+    <title>Animated Login Page</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: rgb(168, 162, 162);
+            min-height: 100vh;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            overflow: hidden;
         }
+
+        /* Container Styling */
         .login-container {
-            width: 300px;
-            padding: 20px;
-            background-color: black;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: white;
+            width: 350px;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.2s ease-out;
         }
-        h2 {
+
+        /* Form Header */
+        .login-container h2 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
             color: #333;
         }
-        .input-field {
-            margin-bottom: 15px;
-        }
-        .input-field label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        .input-field input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .login-button {
+
+        /* Input Fields */
+        .login-container input {
             width: 100%;
             padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .login-container input:focus {
+            border-color: #84fab0;
+            outline: none;
+            box-shadow: 0 0 8px rgba(132, 250, 176, 0.6);
+        }
+
+        /* Button */
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 1rem;
+            background: #84fab0;
             border: none;
-            border-radius: 4px;
-            background-color: #4CAF50;
+            border-radius: 5px;
+            font-size: 1rem;
             color: white;
-            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .login-container button:hover {
+            background: #67c99b;
+        }
+
+        /* Forgot Password */
+        .login-container .forgot-password {
+            text-align: right;
+            margin: 0.5rem 0;
+        }
+
+        .login-container .forgot-password a {
+            text-decoration: none;
+            color: #8fd3f4;
+            font-size: 0.9rem;
+        }
+
+        .login-container .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sign Up */
+        .login-container .signup {
+            text-align: center;
+            margin-top: 1rem;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .login-container .signup a {
+            color: #8fd3f4;
+            text-decoration: none;
+        }
+
+        .login-container .signup a:hover {
+            text-decoration: underline;
+        }
+
+        /* Messages Styling */
+        .alert {
+            margin-bottom: 1rem;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .alert-success {
+            background-color: #67c99b;
+        }
+
+        .alert-dismissible {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
             cursor: pointer;
         }
-        .login-button:hover {
-            background-color: #45a049;
+
+        /* Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="login-container">
+        <h2>Login</h2>
 
-<div class="login-container">
-    <h2>Login</h2>
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-success alert-dismissible fade show">
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        <!-- Django Messages -->
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert">&times;</button>
+        </div>
+        {% endfor %}
+
+        <!-- Django Login Form -->
+        <form id="loginForm" method="post">
+            {% csrf_token %}
+            <div class="input-field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Sign Up Link -->
+        <div class="signup">
+            Don't have an account? <a href="register">Sign up</a>
+        </div>
     </div>
-    {% endfor %}
-    {% endif %}
-    <form id="loginForm" method="post">
-        {% csrf_token %}
-        <div class="input-field">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="input-field">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit" class="login-button">Login</button>
-        <a href="register">Register</a>
-    </form>
-    <!-- {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %} -->
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

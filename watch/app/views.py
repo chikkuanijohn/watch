@@ -216,10 +216,11 @@ def contact(req):
     return render(req,'user/contact.html')
 
 
+def Men(req):
+    return render(req,'user/Men.html')
 
-def about_us(req):
-    return render(req,'user/about.html')
-
+def Women(req):
+    return render(req,'user/Women.html')
 
 
 def product_view(req,pid):
@@ -321,3 +322,4 @@ def bookings(req):
     user=User.objects.get(username=req.session['user'])
     buy=Buy.objects.filter(user=user)[::-1]
     return render(req,'user/bookings.html',{'bookings':buy})
+

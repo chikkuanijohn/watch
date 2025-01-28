@@ -13,7 +13,7 @@
       font-family: 'Arial', sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: rgba(9, 18, 146, 0.637);
+      background-color: rgba(235, 173, 221, 0.637);
     }
 
     .container {
@@ -590,47 +590,82 @@
 </head>
 {% load static %}
 
+
 <body>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-lg" style="background: linear-gradient(90deg, #1e3c72, #2a5298);">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Toys_shop</a>
+      <a class="navbar-brand text-white fw-bold fs-4" href="#">WaTcHeS_wOrLd</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link text-white fs-5" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about_us">About</a>
+            <a class="nav-link text-white fs-5" href="Men">Men</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="bookings">Booking</a>
+            <a class="nav-link text-white fs-5" href="Women">Women</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link text-white fs-5" href="Kids">Kids</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link text-white fs-5" href="bookings">Booking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="view_cart">Cart</a>
+            <a class="nav-link text-white fs-5" href="view_cart">Cart</a>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a href="#" class="nav-link dropdown-toggle text-white fs-5" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">Category</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <!-- <li><a class="dropdown-item" href="categories">Categories</a></li> -->
-              <li><a class="dropdown-item" href="{% url 'category_view' category_id=1 %}">Ride On Vehicles</a></li>
-              <li><a class="dropdown-item" href="{% url 'category_view' category_id=3 %}">Dolls</a></li>
-              <li><a class="dropdown-item" href="{% url 'category_view' category_id=2 %}">Buildings</a></li>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'category_view' category_id=1 %}">Men</a></li>
+              <li><a class="dropdown-item" href="{% url 'category_view' category_id=3 %}">Women</a></li>
+              <!-- <li><a class="dropdown-item" href="{% url 'category_view' category_id=2 %}">Kids</a></li> -->
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact">Contact US</a>
+            <a class="nav-link text-white fs-5" href="contact">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logout">Logout</a>
+            <a class="nav-link text-danger fs-5 fw-bold" href="logout">Logout</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <style>
+    .navbar-nav .nav-link {
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffd700; /* Gold color on hover */
+      transform: scale(1.1); /* Slight zoom effect */
+    }
+
+    .dropdown-menu {
+      background: #f1f1f1; /* Light gray background */
+      border-radius: 8px; /* Rounded corners */
+      border: none; /* Remove border */
+    }
+
+    .dropdown-menu .dropdown-item {
+      color: #333; /* Darker text */
+      transition: background 0.3s;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+      background: #f1c2e7; /* Same gradient as navbar */
+      color: #fff; /* White text */
+    }
+  </style>
+</body>
+
 
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
     <!-- Indicators/dots -->
@@ -641,24 +676,33 @@
     </div>
 
     <!-- The slideshow/carousel -->
+    {% load static %}
     <div class="carousel-inner">
+
       <div class="carousel-item active">
-        <img src="{% static 'images/imge1.jpg' %}" alt="" class="d-block" style="width:100%">
+        <img src="{%static 'images/wath1.webp' %}" alt="" class="d-block" style="width:100%">
+          
+         
+        
+
         <div class="carousel-caption">
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{% static 'images/imge2.webp' %}" alt="" class="d-block" style="width:100%;">
+        <img src="{%static 'images/wath2.webp' %}" alt="" class="d-block" style="width:100%;">
         <div class="carousel-caption">
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{% static 'images/imge3.avif' %}" alt="" class="d-block" style="width:100%">
+        <img src="{%static 'images/wath3.webp' %}" alt="" class="d-block" style="width:100%">
         <div class="carousel-caption">
         </div>
       </div>
     </div>
+------------------------------
 
+  
+-------------------------
     <!-- Left and right controls/icons -->
     <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
       <span class="carousel-control-prev-icon"></span>
@@ -668,26 +712,7 @@
     </button>
   </div>
 
-  <div class="container">
-    <div class="card">
-      <img src="{% static 'images/uptoimg.webp' %}" alt="Smart Watch">
-      <!-- <h2>Up to $30 OFF</h2>
-      <p>Xplora Smart Watches!</p>
-      <a href="#" class="cta-button">Shop Xplora Sale</a> -->
-    </div>
-    <div class="card" style="background: #d5efff;">
-      <img src="{% static 'images/findtheperfectimg.webp' %}" alt="Perfect Gift">
-      <!-- <h2>Find The Perfect Gift!</h2>
-      <p>Explore our gift guides for the best deals.</p>
-      <a href="#" class="cta-button">Explore Gift Guides</a> -->
-    </div>
-  </div>
 
-  <div class="holiday-section">
-
-    <img src="{% static 'images/holidayimg.webp' %}" alt="Geoffrey" style="width: 100%; height: auto;">
-    <!-- <a href="" class="cta-button" style="background-color: #c02a2a;">Find A Gift</a> -->
-  </div>
 
   <div class="container1">
     <div class="row">
@@ -707,77 +732,380 @@
       {% endfor %}
     </div>
   </div>
+  ------------------------------
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
 
-  <footer class="footer">
-    <div class="footer-container">
-      <!-- Information Section -->
-      <div class="footer-section">
-        <h3>INFORMATION</h3>
-        <ul>
-          <li><a href="#">Returns & Cancellation</a></li>
-          <li><a href="#">Refunds</a></li>
-          <li><a href="#">Shipping Policy</a></li>
-          <li><a href="#">Privacy And Cookies</a></li>
-          <li><a href="#">Disclaimer</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
+    .features {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px;
+      background-color: #000;
+    }
 
-      <!-- Featured Brands Section -->
-      <div class="footer-section">
-        <h3>FEATURED BRANDS</h3>
-        <ul>
-          <li><a href="#">Barbie</a></li>
-          <li><a href="#">Disney</a></li>
-          <li><a href="#">Funskool</a></li>
-          <li><a href="#">Hot Wheels</a></li>
-          <li><a href="#">Lego</a></li>
-          <li><a href="#">Marvel</a></li>
-          <li><a href="#">Nerf</a></li>
-        </ul>
-      </div>
+    .feature-item {
+      text-align: center;
+      max-width: 150px;
+    }
 
-      <!-- Categories Section -->
-      <div class="footer-section">
-        <h3>CATEGORIES</h3>
-        <ul>
-          <li><a href="#">Toys & Games</a></li>
-          <li><a href="#">Baby Care & Gear</a></li>
-          <li><a href="#">Party Decorations</a></li>
-          <li><a href="#">Play & School Furniture</a></li>
-          <li><a href="#">Kids Books</a></li>
-          <li><a href="#">Action Figures</a></li>
-          <li><a href="#">Collectibles</a></li>
-        </ul>
-      </div>
+    .feature-item i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
 
-      <!-- Newsletter Signup Section -->
-      <div class="footer-section">
-        <h3>NEWSLETTER SIGN UP</h3>
-        <form>
-          <input type="email" placeholder="enter your email address" required>
-          <button type="submit">SUBMIT</button>
-        </form>
-      </div>
+    .feature-item p {
+      margin: 0;
+      font-size: 14px;
+    }
 
-      <!-- Social Media Section -->
-      <div class="footer-section">
-        <h3>FOLLOW FUNCORP HERE</h3>
-        <div class="social-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-youtube"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-        </div>
-      </div>
+    .feature-item span {
+      color: #ffcc00;
+      font-size: 12px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="features">
+    <div class="feature-item">
+      <i class="fas fa-crosshairs"></i>
+      <p>No Cost EMI above 7k</p>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-shopping-cart"></i>
+      <p>Ship in 24 hours</p>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-store"></i>
+      <p>1 yr Warranty</p>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-money-bill"></i>
+      <p>COD available up to 25k</p>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-wallet"></i>
+      <p>10% off on 1st purchase</p>
+      <span>Use: WELCOME10</span>
+    </div>
+  </div>
+  -----------------------------------
+  <!-- <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+  
+    h1 {
+      font-size: 2rem;
+      color: #0baaad;
+      margin-bottom: 5px;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+  
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      padding: 0 20px;
+    }
+  
+    .brand-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      width: 100%;
+      height: 100px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+  
+    .brand-item img {
+      max-width: 80%;
+      max-height: 60%;
+    }
+  
+    .brand-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-color: #0baaad;
+    }
+  </style> -->
+
+  <style>
+    body {
+        font-family: 'Poppins', Arial, sans-serif;
+        background: linear-gradient(135deg, #f4f4f9, #e8eaf6);
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #0baaad;
+        margin-bottom: 5px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        color: #555;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+
+    .brand-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .brand-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ffffff, #f4f4f9);
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        width: 100%;
+        height: 120px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .brand-item img {
+        max-width: 80%;
+        max-height: 60%;
+        transition: transform 0.3s ease;
+        z-index: 2;
+    }
+
+    .brand-item::before {
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 300%;
+        height: 300%;
+        background: linear-gradient(45deg, rgba(11, 170, 173, 0.1), rgba(11, 170, 173, 0.4));
+        transform: rotate(45deg);
+        transition: opacity 0.3s;
+        z-index: 1;
+        opacity: 0;
+    }
+
+    .brand-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-color: #0baaad;
+    }
+
+    .brand-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .brand-item:hover::before {
+        opacity: 1;
+    }
+</style>
+  </head>
+  <body>
+  
+  <h1>30+ INTERNATIONAL BRANDS</h1>
+  <h2>ONE TRUSTED DESTINATION</h2>
+  
+  <div class="brand-grid">
+    <div class="brand-item"><img src="{%static 'images/in1.jpg' %}" alt="Aigner"></div>
+    <div class="brand-item"><img src="{%static 'images/in2.jpg' %}" alt="Amazfit"></div>
+    <div class="brand-item"><img src="{%static 'images/in3.jpg' %}" alt="Anne Klein"></div>
+    <div class="brand-item"><img src="{%static 'images/in4.jpg' %}" alt="Armani Exchange"></div>
+    <div class="brand-item"><img src="{%static 'images/in5.jpg' %}" alt="Balmain"></div>
+    <div class="brand-item"><img src="{%static 'images/in6.jpg' %}" alt="Boss"></div>
+    <div class="brand-item"><img src="{%static 'images/in7.jpg' %}" alt="Calvin Klein"></div>
+    <div class="brand-item"><img src="{%static 'images/in8.jpg' %}" alt="Casio"></div>
+    <div class="brand-item"><img src="{%static 'images/in9.jpg' %}" alt="Cerruti"></div>
+    <div class="brand-item"><img src="{%static 'images/in10.jpg' %}" alt="Charriol"></div>
+    <div class="brand-item"><img src="{%static 'images/in11.jpg' %}" alt="Citizen"></div>
+    <div class="brand-item"><img src="{%static 'images/in12.jpg' %}" alt="Coach"></div>
+    <div class="brand-item"><img src="{%static 'images/in13.jpg' %}" alt="Diesel"></div>
+    <div class="brand-item"><img src="{%static 'images/in14.jpg' %}" alt="Edge"></div>
+    <div class="brand-item"><img src="{%static 'images/in15.jpg' %}" alt="Emporio Armani"></div>
+    <div class="brand-item"><img src="{%static 'images/in16.jpg' %}" alt="Borel"></div>
+    <div class="brand-item"><img src="{%static 'images/in17.jpg' %}" alt="Fitbit"></div>
+    <div class="brand-item"><img src="{%static 'images/1p.jpg' %}" alt="Fossil"></div>
+    <div class="brand-item"><img src="{%static 'images/2p.png' %}" alt="Frederique Constant"></div>
+    <div class="brand-item"><img src="{%static 'images/4p.jpg' %}" alt="G-Shock"></div>
+    <div class="brand-item"><img src="{%static 'images/5p.png' %}" alt="GC"></div>
+    <div class="brand-item"><img src="{%static 'images/6p.png' %}" alt="Guess"></div>
+    <div class="brand-item"><img src="{%static 'images/7p.png' %}" alt="Herbelin"></div>
+    <div class="brand-item"><img src="{%static 'images/9p.png' %}" alt="JustCavalli"></div>
+    <div class="brand-item"><img src="{%static 'images/10p.jpg' %}" alt="Kenneth Cole"></div>
+    <div class="brand-item"><img src="{%static 'images/11p.png' %}" alt="Michael Kors"></div>
+    <div class="brand-item"><img src="{%static 'images/12p.png' %}" alt="Milus"></div>
+    <div class="brand-item"><img src="{%static 'images/13p.png' %}" alt="Movado"></div>
+    <div class="brand-item"><img src="{%static 'images/14p.png' %}" alt="Nebula"></div>
+    <div class="brand-item"><img src="{%static 'images/15p.jpg' %}" alt="Police"></div>
+    <!-- <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Raga" alt="Raga"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Seiko" alt="Seiko"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=SevenFriday" alt="SevenFriday"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Swarovski" alt="Swarovski"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Tissot" alt="Tissot"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Titan" alt="Titan"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Versace" alt="Versace"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Victorinox" alt="Victorinox"></div>
+    <div class="brand-item"><img src="https://via.placeholder.com/80x40?text=Xylys" alt="Xylys"></div> -->
+  </div>
+  
+  
+  ---------------------------------
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+
+    footer {
+      background-color: #2a3a48;
+      color: #dcdcdc;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-column h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-transform: uppercase;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+
+    .footer-column a {
+      text-decoration: none;
+      color: #dcdcdc;
+      font-size: 14px;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #0baaad;
+    }
+
+    .footer-column .contact-info {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .footer-column .contact-info span {
+      color: #0baaad;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #dcdcdc;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #0baaad;
+    }
+  </style>
+</head>
+<body>
+
+<footer>
+  <div class="footer-container">
+    <!-- Column 1 -->
+    <div class="footer-column">
+      <h3>WaTcHeS_wOrLd</h3>
+      <a href="#">About Us</a>
+      <a href="#">About Titan Company Limited</a>
+      <!-- <a href="#">Bulk Purchase & Corporate Gifting</a> -->
     </div>
 
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p>&copy;2024 TOYS_SHOP BUSINESS PRIVATE LIMITED</p>
+    <!-- Column 2 -->
+    <div class="footer-column">
+      <h3>Terms & Conditions</h3>
+      <a href="#">Shipping & Return Policies</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">FAQs</a>
     </div>
-  </footer>
+
+    <!-- Column 3 -->
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+      <p class="contact-info">
+        For Sale: <span>watches_worldsupport@titan.co.in</span><br>
+        <span>+91-9355401889</span>
+      </p>
+      <p class="contact-info">
+        For Complaints: <span>1800 266 0123</span>
+      </p>
+      <!-- <p class="contact-info">
+        Chat Time: Our customer success team is available from Monday to Saturday, 09:00 to 17:30.
+      </p> -->
+      <p class="contact-info">
+        For Complaints: <span>customercare@titan.co.in</span>
+      </p>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-column">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
-
-</html>v
+</html>

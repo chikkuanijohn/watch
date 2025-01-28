@@ -19,7 +19,8 @@ urlpatterns = [
     path('register/',views.register),
     path('user_home',views.user_home),
     path('contact/', views.contact),
-    path('about_us', views.about_us),
+    path('Men',views.Men),
+    path('Women',views.Women),
     path('product_view/<pid>',views.product_view),
     path('add_to_cart/<pid>',views.add_to_cart),
     path('view_cart',views.view_cart),
@@ -29,6 +30,5 @@ urlpatterns = [
     path('qty_in/<cid>',views.qty_in),
     path('qty_dec/<cid>',views.qty_dec),
     path('category_view/<int:category_id>/', views.category_view, name='category_view'),
-    
-
+   
 ]
